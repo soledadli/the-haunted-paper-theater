@@ -1,0 +1,38 @@
+#include <SD.h>
+#include <SPI.h>
+#include <arduino.h>
+#include <MusicPlayer.h>
+
+#define Input_Left 2
+#define Input_Right 3
+
+int playedTwo = 0;
+int playedThree = 0;
+
+void setup(void) {
+  pinMode(Input_Left, INPUT);                    // Eingangspin auf Eingang stellen
+  pinMode (Input_Right, INPUT);                    // Eingangspin auf Eingang stellen
+  
+  Serial.begin(9600);
+
+  attachInterrupt(0, detectLeft, FALLING);
+  attachInterrupt(1, detectRight, FALLING);
+
+
+  void loop() {
+  int playedTwo = 0;
+  int playedThree = 0;
+  player.play();
+  }
+  
+
+void detectLeft() {
+  Serial.println("Left Magnet recognized");
+  player.playOne("2.WAV");
+  //player.play();
+  
+  
+void detectRight() {
+  player.playOne("3.WAV");
+
+}
